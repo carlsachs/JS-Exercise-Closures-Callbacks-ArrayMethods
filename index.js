@@ -184,10 +184,12 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
  * @returns an array with all the runners' full names in the following format: "Smith, John".
  * The full names appear in the array in the same order the runners appear in the `runners` array.
 */
-function getFullNames(runners) {
-  const newArray = [];
-  runners.forEach(el => `${runners.last_name}, ${runners.first_name}`);
-  return newArray;
+function getFullNames(arr) {
+  let newarr = [];
+  arr.forEach((runner) => {
+    newarr.push(`${runner.last_name}, ${runner.first_name}`);
+   });
+   return(newarr);
 }
 
 /**
@@ -203,12 +205,12 @@ function getFullNames(runners) {
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
 function firstNamesAllCaps(runner) {
-  let newarr = [];
-  runner.forEach((runers) => {
-    let uppercase = runner.first_name.toUpperCase();
+  let newarr =[];
+  runner.map((runners) => {
+    let uppercase = runners.first_name.toUpperCase();
     newarr.push(uppercase);
-  });
-  return(newarr);
+   });
+   return(newarr);
 }
 
 /**
@@ -263,10 +265,8 @@ function tallyUpDonations(/* CODE HERE */) {
 */
 function counterMaker() {
   // BROKEN CODE STARTS
-  const count = 0;
-  function counter() {
-    ++count
-  }
+  let count = -1;
+  return () => ++count;
   // BROKEN CODE ENDS
 }
 
