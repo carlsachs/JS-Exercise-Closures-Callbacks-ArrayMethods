@@ -226,11 +226,15 @@ function firstNamesAllCaps(runner) {
  * @returns an array containing only the runners that use the given `tShirtSize`.
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
-function getRunnersByTShirtSize(runners, size) {
-  size = '"S", "M", "L", "XL", "2XL", "3XL"';
-  return runners.filter(function(el) {
-    return el.shirt_size === size;
-  });
+// function getRunnersByTShirtSize(runners, size) {
+//   size = '"S", "M", "L", "XL", "2XL", "3XL"';
+//   return runners.filter(function(el) {
+//     return el.shirt_size === size;
+//   });
+// }
+function getRunnersByTShirtSize(runners, tShirtSize) {
+  const newArr = runners.filter(item => item.shirt_size === tShirtSize);
+  return newArr;
 }
 
 /**
@@ -243,8 +247,11 @@ function getRunnersByTShirtSize(runners, size) {
  * @param runners array of runners like the one inside the /data/runners.js file.
  * @returns a number which is the sum of the donations by all runners.
 */
-function tallyUpDonations(/* CODE HERE */) {
-  /* CODE HERE */
+function tallyUpDonations(runners) {
+  const sum = runners.reduce((acc, currentVal) => {
+    return acc + currentVal.donation;
+  }, 0);
+  return sum;
 }
 
 /////////////// CLOSURES ///////////////
@@ -290,8 +297,16 @@ function counterMaker() {
  * counter() // should return 0
  * etc
 */
-function counterMakerWithLimit(/* CODE HERE */) {
-  /* CODE HERE */
+function counterMakerWithLimit(num) {
+  let count = 0;
+  function counter() {
+    if(count > num){
+      count = 0;
+  }
+  return count++;
+}
+  return counter;
+  // BROKEN CODE ENDS
 }
 
 /////////////// END OF CHALLENGE ///////////////
